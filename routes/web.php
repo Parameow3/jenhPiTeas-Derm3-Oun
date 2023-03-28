@@ -17,9 +17,20 @@ function getContacts(){
         4 => ['firstname' => 'Kos', 'lastname' => 'Borey', 'email'=>'borey@mno.com','phone'=>'092 234 343','address'=>'Phnom Penh', 'company'=>'MNO'],
     ];
 }
+
+function getCompanies(): array
+{
+    return [
+      1 => ['name' => 'Company 1'],
+      2 => ['name' => 'Company 2'],
+    ];
+}
+
+
 Route::get('/contacts', function () {
     $contacts = getContacts();
-    return view('contacts.index',compact('contacts'));
+    $companies = json_decode(json_encode(getCompanies()));
+    return view('contacts.index',compact('contacts', 'companies'));
 })->name('contacts.index');
 
 Route::get('/contacts/create', function () {
