@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Repositories\CompanyRepository;
+
 class ContactController extends Controller
 {
     //Index
-    public function index()
+    public function index(CompanyRepository $company)
     {
-        $contacts = $this->getContacts();
-        $companies = json_decode(json_encode($this->getCompanies()));
+        $contacts = Contact::where(function ($query) {
+            if ($companyId = request()->query("company_id")) {
+                $query->where("company_id", $companyId);
+            }
+        })->get();
+
+        $companies = json_decode(json_encode($company->company_data()));
         return view('contacts.index', ['contacts' => $contacts, 'companies' => $companies]);
     }
 
@@ -21,9 +29,7 @@ class ContactController extends Controller
     //Show
     public function show($id)
     {
-        $contacts = $this->getContacts();
-        abort_if(!isset($contacts[$id]), 404);
-        $contact = $contacts[$id];
+        $contact = Contact::findOrFail($id);
         return view('contacts.show')->with('contact', $contact);
     }
 
@@ -37,11 +43,4 @@ class ContactController extends Controller
         ];
     }
 
-    protected function getCompanies()
-    {
-        return [
-            1 => ['name' => 'Company 1'],
-            2 => ['name' => 'Company 2'],
-        ];
-    }
 }

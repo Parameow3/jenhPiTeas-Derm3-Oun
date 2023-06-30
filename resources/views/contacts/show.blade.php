@@ -14,41 +14,41 @@
                                     <div class="mb-2 row">
                                         <label for="first_name" class="col-md-3 col-form-label">First Name</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">{{$contact['firstname']}}</p>
+                                            <p class="form-control-plaintext text-muted">{{$contact->first_name}}</p>
                                         </div>
                                     </div>
 
                                     <div class="mb-2 row">
                                         <label for="last_name" class="col-md-3 col-form-label">Last Name</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">{{$contact['lastname']}}</p>
+                                            <p class="form-control-plaintext text-muted">{{$contact->last_name}}</p>
                                         </div>
                                     </div>
 
                                     <div class="mb-2 row">
                                         <label for="email" class="col-md-3 col-form-label">Email</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">{{$contact['email']}}</p>
+                                            <p class="form-control-plaintext text-muted">{{$contact->email}}</p>
                                         </div>
                                     </div>
 
                                     <div class="mb-2 row">
                                         <label for="phone" class="col-md-3 col-form-label">Phone</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">{{$contact['phone']}}</p>
+                                            <p class="form-control-plaintext text-muted">{{$contact->phone}}</p>
                                         </div>
                                     </div>
 
                                     <div class="mb-2 row">
                                         <label for="name" class="col-md-3 col-form-label">Address</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">{{$contact['address']}}</p>
+                                            <p class="form-control-plaintext text-muted">{{$contact->address}}</p>
                                         </div>
                                     </div>
                                     <div class="mb-2 row">
                                         <label for="company_id" class="col-md-3 col-form-label">Company</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">{{$contact['company']}}</p>
+                                            <p class="form-control-plaintext text-muted">{{$contact->company->name}}</p>
                                         </div>
                                     </div>
                                     <hr>
