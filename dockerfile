@@ -5,7 +5,7 @@ RUN apt install -y php8.2-fpm php8.2-ctype php8.2-curl php8.2-dom php8.2-Fileinf
 RUN apt install -y filter php8.2-Mbstring php8.2-pdo php8.2-Tokenizer php8.2-XML php8.2-mysql
 RUN apt install -y nginx
 
-COPY ../../Downloads/Telegram%20Desktop /app
+COPY . /app
 WORKDIR /app
 RUN chown -R www-data:www-data /app
 RUN chmod -R 775 /app
